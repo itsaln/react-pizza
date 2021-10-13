@@ -2,6 +2,8 @@ import React from 'react'
 import classNames from 'classnames'
 
 function Button({onClick, className, outline, children}) {
+  console.log('render Button')
+
   return (
     <button
       onClick={onClick}
