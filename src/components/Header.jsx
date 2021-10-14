@@ -4,8 +4,6 @@ import {Button} from '../components'
 import logoSvg from '../assets/img/pizza-logo.svg'
 
 function Header() {
-  console.log('render Header')
-
   return (
     <div className="header">
       <div className="container">

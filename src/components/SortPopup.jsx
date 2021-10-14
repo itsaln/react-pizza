@@ -1,8 +1,6 @@
 import React from 'react'
 
 function SortPopup({items}) {
-  console.log('render SortPopup')
-
   const [activeItem, setActiveItem] = React.useState(0)
   const [visiblePopup, setVisiblePopup] = React.useState(false)
   const sortRef = React.useRef(null)
