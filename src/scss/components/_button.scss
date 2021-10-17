@@ -67,7 +67,7 @@
       }
     }
 
-    &:hover {
+    &:hover, &:active {
       background-color: $orange;
 
       &,
@@ -80,10 +80,6 @@
           fill: #fff;
         }
       }
-    }
-
-    &:active {
-      background-color: darken($orange, 8%);
     }
   }
 
@@ -105,7 +101,7 @@
       font-size: 16px;
     }
 
-    &:hover {
+    &:hover, &:active {
       i {
         background-color: #fff;
         color: $orange;

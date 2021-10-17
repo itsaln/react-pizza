@@ -10,7 +10,7 @@ function Categories({items}) {
   return (
     <div className="categories">
       <ul>
-        <li>Все</li>
+        <li className="active">Все</li>
         {items && items.map((name, index) =>
           <li
             className={activeItem === index ? 'active' : ''}
