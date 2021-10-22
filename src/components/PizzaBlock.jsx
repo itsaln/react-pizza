@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-import pizzaImg from '../assets/img/pizza-img.jpg'
+// import pizzaImg from '../assets/img/pizza-img.jpg'
 
 function PizzaBlock({name, imageUrl, price, types, sizes}) {
   const availableTypes = ['тонкое', 'традиционное']
@@ -22,8 +22,8 @@ function PizzaBlock({name, imageUrl, price, types, sizes}) {
     <div className="pizza-block">
       <img
         className="pizza-block__image"
-        // src={imageUrl}
-        src={pizzaImg}
+        src={imageUrl}
+        // src={pizzaImg}
         alt="Pizza"
       />
       <h4 className="pizza-block__title">{name}</h4>
