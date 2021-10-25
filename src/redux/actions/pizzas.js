@@ -1,10 +1,15 @@
-import {SET_PIZZAS} from '../types'
+import {SET_PIZZAS, SET_LOADED} from '../types'
 import axios from 'axios'
 
-export const fetchPizzas = () => dispatch => {
-  axios.get('http://localhost:3001/pizzas').then(({data}) => {
-    dispatch(setPizzas(data))
-  })
+export const setLoaded = value => ({
+  type: SET_LOADED,
+  payload: value
+})
+
+export const fetchPizzas = (sortBy, category) => dispatch => {
+  dispatch(setLoaded(false))
+  axios.get(`http://localhost:3001/pizzas?${category !== null ? `category=${category}` : ''}&_sort=${sortBy.type}&order=${sortBy.order}`)
+    .then(({data}) => dispatch(setPizzas(data)))
 }
 
 export const setPizzas = items => ({
