@@ -1,7 +1,7 @@
 import React from 'react'
 import ContentLoader from 'react-content-loader'
 
-function LoadingBlock() {
+function PizzaLoadingBlock() {
   return (
     <ContentLoader
       className="pizza-block"
@@ -20,4 +20,4 @@ function LoadingBlock() {
   )
 }
 
-export default LoadingBlock
+export default PizzaLoadingBlock
