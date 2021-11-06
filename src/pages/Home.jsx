@@ -4,7 +4,6 @@ import {setCategory, setSortBy} from '../redux/actions/filters'
 import {fetchPizzas} from '../redux/actions/pizzas'
 import {Categories, SortPopup, PizzaBlock, PizzaLoadingBlock} from '../components'
 import {ADD_PIZZA_CART} from '../redux/types'
-import cart from "../redux/reducers/cart";
 
 const categoryNames = ['Мясные', 'Вегетарианская', 'Гриль', 'Острые', 'Закрытые']
 const sortItem = [
@@ -58,7 +57,7 @@ function Home() {
           ? items.map(obj => (
             <PizzaBlock
               key={obj.id}
-              addedCount={cartItems[obj.id] && cartItems[obj.id].length}
+              addedCount={cartItems[obj.id] && cartItems[obj.id].items.length}
               {...obj}
               onClickAddPizza={handleAddPizzaToCart}
             />
