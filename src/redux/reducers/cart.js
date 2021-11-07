@@ -1,4 +1,4 @@
-import {ADD_PIZZA_CART} from '../types'
+import {ADD_PIZZA_CART, CLEAR_CART} from '../types'
 
 const initialState = {
   items: {},
@@ -21,7 +21,7 @@ const pizzas = (state = initialState, action) => {
           totalPrice: getTotalPrice(currentPizzaItems)
         }
       }
-			const items = Object.values(newItems).map(obj => obj.items)
+      const items = Object.values(newItems).map(obj => obj.items)
       const allPizzas = [].concat.apply([], items)
       const totalPrice = getTotalPrice(allPizzas)
 
@@ -32,6 +32,8 @@ const pizzas = (state = initialState, action) => {
         totalPrice
       }
     }
+    case CLEAR_CART:
+      return {totalPrice: 0, totalCount: 0, items: {}}
     default:
       return state
   }
