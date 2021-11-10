@@ -1,4 +1,4 @@
-import {ADD_PIZZA_CART, CLEAR_CART} from '../types'
+import {ADD_PIZZA_CART, CLEAR_CART, REMOVE_CART_ITEM} from '../types'
 
 const initialState = {
   items: {},
@@ -32,6 +32,19 @@ const pizzas = (state = initialState, action) => {
         totalPrice
       }
     }
+    case REMOVE_CART_ITEM:
+      const newItems = {
+        ...state.items
+      }
+      const currentTotalPrice = newItems[action.payload].totalPrice
+      const currentTotalCount = newItems[action.payload].items.length
+      delete newItems[action.payload]
+      return {
+        ...state,
+        items: newItems,
+        totalPrice: state.totalPrice - currentTotalPrice,
+        totalCount: state.totalCount - currentTotalCount
+      }
     case CLEAR_CART:
       return {totalPrice: 0, totalCount: 0, items: {}}
     default:

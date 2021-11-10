@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux'
-import {clearCart} from '../redux/actions/cart'
+import {clearCart, removeCartItem} from '../redux/actions/cart'
 import {CartItem} from '../components'
 import cartEmptyImage from '../assets/img/empty-cart.png'
 
@@ -16,6 +16,12 @@ function Cart() {
   const onClearCart = () => {
     if (window.confirm('Вы действительно хотите очистить корзину?')) {
       dispatch(clearCart())
+    }
+  }
+
+  const onRemoveItem = id => {
+    if (window.confirm('Вы действительно хотите удалить')) {
+      dispatch(removeCartItem(id))
     }
   }
 
@@ -56,11 +62,13 @@ function Cart() {
           <div className="content__items">
             {addedPizzas.map(obj => (
               <CartItem
+                id={obj.id}
                 key={`${obj.name}_${obj.id}`}
                 name={obj.name} type={obj.type}
                 size={obj.size}
                 totalPrice={items[obj.id].totalPrice}
                 totalCount={items[obj.id].items.length}
+                onRemove={onRemoveItem}
               />
             ))}
           </div>
@@ -85,9 +93,8 @@ function Cart() {
             </div>
           </div>
         </div> :
-
         <div className="cart cart--empty">
-          <h2>Корзина пустая <icon>😕</icon></h2>
+          <h2>Корзина пустая <span>😕</span></h2>
           <p>
             Вероятней всего, вы не заказывали ещё пиццу.<br/>
             Для того, чтобы заказать пиццу, перейди на главную страницу.
