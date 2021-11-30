@@ -6,12 +6,16 @@ export const setLoaded = value => ({
   payload: value
 })
 
-export const fetchPizzas = (sortBy, category) => dispatch => {
+// export const fetchPizzas = (sortBy, category) => dispatch => {
+//   dispatch(setLoaded(false))
+//   axios.get(`/pizzas?${category !== null ? `category=${category}` : ''}&_sort=${sortBy.type}&order=${sortBy.order}`)
+//     .then(({data}) => dispatch(setPizzas(data)))
+// }
+
+export const fetchPizzas = () => dispatch => {
   dispatch(setLoaded(false))
-  axios.get(`/pizzas?${category !== null ? `category=${category}` : ''}&_sort=${sortBy.type}&order=${sortBy.order}`)
+  axios.get('https://react-pizza-6ada5-default-rtdb.asia-southeast1.firebasedatabase.app/pizzas.json')
     .then(({data}) => dispatch(setPizzas(data)))
-  // axios.get('https://react-pizza-6ada5-default-rtdb.asia-southeast1.firebasedatabase.app/pizzas.json')
-  //   .then(({data}) => dispatch(setPizzas(data)))
 }
 
 export const setPizzas = items => ({
