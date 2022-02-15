@@ -12,6 +12,12 @@ export const fetchPizzas = (sortBy, category) => dispatch => {
     .then(({data}) => dispatch(setPizzas(data)))
 }
 
+// export const fetchPizzas = () => dispatch => {
+//   dispatch(setLoaded(false))
+//   axios.get('https://react-pizza-6ada5-default-rtdb.asia-southeast1.firebasedatabase.app/pizzas.json')
+//     .then(({data}) => dispatch(setPizzas(data)))
+// }
+
 export const setPizzas = items => ({
   type: SET_PIZZAS,
   payload: items

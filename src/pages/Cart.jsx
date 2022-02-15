@@ -32,9 +32,10 @@ function Cart() {
   const onDecrement = id => {
     dispatch(decrementCartItem(id))
   }
-	
+
 	const onClickOrder = () => {
-		console.log('Ваш заказ', items)
+		console.log('Ваш заказ:', items)
+    alert('Смотрите в консоль 😉')
 	}
 
   return (
